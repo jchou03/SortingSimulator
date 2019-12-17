@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 public class Main {
 	
@@ -36,7 +37,7 @@ public class Main {
 		
 		
 		frame.setSize(600,600);
-		frame.setVisible(true);
+
 //		setting up buttons for selecting the sorting algorithm 
 		JButton bSelect = new JButton("Selection");
 		bSelect.setBounds(100, 100, 200, 50);
@@ -48,44 +49,72 @@ public class Main {
 		bMerge.setBounds(100, 400, 200, 50);
 		JButton bQuick = new JButton("Quick");
 		bQuick.setBounds(100, 500, 200, 50);
+//		JPanel panel = new JPanel();
+		
+
+		frame.add(bSelect);
+		frame.add(bBubble);
+		frame.add(bInsert);
+		frame.add(bMerge);
+		frame.add(bQuick);
+
+		frame.setLayout(null);
+		frame.setVisible(true);
+
 		
 		bSelect.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
+				bBubble.setVisible(false);
+				bInsert.setVisible(false);
+				bMerge.setVisible(false);
+				bQuick.setVisible(false);
 				chooseSort("select");
 			}
 		});
 		bBubble.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
+				bSelect.setVisible(false);
+				bInsert.setVisible(false);
+				bMerge.setVisible(false);
+				bQuick.setVisible(false);
 				chooseSort("bubble");
 			}
 		});
 		bInsert.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
+				bSelect.setVisible(false);
+				bBubble.setVisible(false);
+				bMerge.setVisible(false);
+				bQuick.setVisible(false);
 				chooseSort("insertion");
 			}
 		});
 		bMerge.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
+				bSelect.setVisible(false);
+				bBubble.setVisible(false);
+				bInsert.setVisible(false);
+				bQuick.setVisible(false);
 				chooseSort("merge");
 			}
 		});
 		bQuick.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
+				bSelect.setVisible(false);
+				bBubble.setVisible(false);
+				bInsert.setVisible(false);
+				bMerge.setVisible(false);
 				chooseSort("quick");
 			}
 		});
 		
-		frame.add(bSelect);
-		frame.add(bBubble);
-		frame.add(bInsert);
-		frame.add(bMerge);
-		frame.add(bQuick);
 		
+
 	}
 
 	public static void chooseSort(String typeOfSort) {
